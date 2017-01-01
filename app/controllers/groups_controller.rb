@@ -10,11 +10,12 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      flash[:alert] = 'Success'
+      flash[:notice] = 'Success'
     end
     redirect_to groups_path
   end
   def show
+    @group = Group.find(params[:id])
   end
   def update
   end
