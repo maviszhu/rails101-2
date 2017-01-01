@@ -3,4 +3,9 @@ class Account::PostsController < ApplicationController
   def index
     @posts = current_user.posts.order("created_at DESC")
   end
+  def edit
+    @post = current_user.posts.find(params[:id])
+    @group = @post.group
+  end
+
 end
